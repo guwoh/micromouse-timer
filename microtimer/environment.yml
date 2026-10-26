@@ -1,0 +1,13 @@
+name: micromouse-timer
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pyyaml
+  - pytest
+  - pyqt6
+  - openpyxl
+  - pip:
+      - opencv-python

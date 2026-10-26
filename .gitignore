@@ -1,0 +1,61 @@
+# Python environments, caches and analysis output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Build outputs and installers (publish these as artifacts, not source files)
+build/
+dist/
+*.spec.bak
+*.deb
+*.exe
+*.AppImage
+
+# Local competition data: never upload team results, backups or logs
+exports/
+logs/
+preferences.json
+preferences.tmp
+private/
+.private/
+/data/
+/microtimer/data/
+
+# Machine-specific configuration and credentials
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+/microtimer/config/local.*
+/microtimer/config/private/
+
+# Personal recordings; only these two maintained test fixtures are public
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.m4v
+!microtimer/samples/mock_run_real.mp4
+!microtimer/samples/mock_run.mp4
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

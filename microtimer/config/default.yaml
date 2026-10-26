@@ -1,0 +1,24 @@
+camera:
+  source_type: usb
+  usb_index: 0
+  width: 1280
+  height: 720
+  fps: 30
+  ip_url: "rtsp://127.0.0.1:8554/stream"
+  reconnect_ms: 1500
+
+processing:
+  start_corner: bottom_left
+  map_inset_pct: 0.0
+  start_line_thickness_pct: 0.03
+  goal_size_pct: 0.16
+  diff_threshold: 30
+  start_ratio_threshold: 0.05
+  goal_ratio_threshold: 0.02
+  sample_interval_ms: 30
+  goal_hold_ms: 80
+  warmup_ms: 500
+  outside_ratio_threshold: 0.01
+  transition_timeout_ms: 1500
+  max_camera_shift_px: 24.0
+  debounce_ms: 80

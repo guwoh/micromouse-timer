@@ -1,0 +1,5 @@
+opencv-python
+numpy
+PyQt6
+PyYAML
+openpyxl
