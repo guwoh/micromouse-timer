@@ -2,7 +2,7 @@ import time
 
 import numpy as np
 import pytest
-from PyQt6 import QtCore, QtTest, QtWidgets
+from PyQt6 import QtCore, QtGui, QtTest, QtWidgets
 
 from core.fsm import TimerSnapshot
 from core.models import TimerState
@@ -17,7 +17,10 @@ def test_controls_keep_legible_height_at_small_window_sizes(window, qapp, size):
         if not button.isVisible():
             continue
         assert button.height() >= 32, button.text()
-        assert button.width() > button.fontMetrics().horizontalAdvance(button.text()) + 12
+        assert button.width() > button.fontMetrics().horizontalAdvance(button.text()) + 12, (
+            button.text(), button.font().toString(), QtGui.QFontInfo(button.font()).family(),
+            button.logicalDpiX(), button.devicePixelRatioF(),
+        )
     for field in (
         window.camera_panel.input_edit, window.camera_panel.source_combo,
         window.control_panel.team_name_edit, window.control_panel.duration_spin,

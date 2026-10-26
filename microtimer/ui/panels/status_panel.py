@@ -1,4 +1,4 @@
-from PyQt6 import QtCore, QtWidgets
+from PyQt6 import QtCore, QtGui, QtWidgets
 
 from ui.components.dashboard import Card, label
 
@@ -6,6 +6,7 @@ from ui.components.dashboard import Card, label
 class StatusPanel(Card):
     def __init__(self, controls):
         super().__init__()
+        self._clock_family = QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.SystemFont.FixedFont).family()
         self.title = label("Timing", self, title=True)
         self.state_label = QtWidgets.QLabel("IDLE", self)
         self.state_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
@@ -65,7 +66,7 @@ class StatusPanel(Card):
             available = box.value.width()
             # Size the font for the longest supported 180-minute value, independent of live text.
             pixels = min(box_height - 38, available // (5 if index == 0 else 7))
-            box.value.setStyleSheet(f"color: #09263d; font-family: 'DejaVu Sans Mono'; font-size: {max(23, pixels)}px; font-weight: bold;")
+            box.value.setStyleSheet(f"color: #09263d; font-family: '{self._clock_family}'; font-size: {max(23, pixels)}px; font-weight: bold;")
         y = 52 + 2 * (box_height + gap)
         half = (w - 2 * m - gap) // 2
         self.controls.arm_btn.setGeometry(m, y, half, controls_height)

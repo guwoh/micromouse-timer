@@ -9,7 +9,7 @@ MUTED = "#657d99"
 
 STYLE = """
 QMainWindow, QScrollArea, QWidget#dashboard { background: #f4f7fc; }
-QWidget { color: #102b48; font-family: 'DejaVu Sans'; font-size: 13px; }
+QWidget { color: #102b48; font-size: 13px; }
 QFrame#card { background: white; border: 1px solid #dce6f2; border-radius: 10px; }
 QLabel { background: transparent; border: none; }
 QLabel#sectionTitle { font-size: 16px; font-weight: bold; }

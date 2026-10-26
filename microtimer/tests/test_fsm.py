@@ -33,3 +33,21 @@ def test_tick_snapshot_remains_consistent_when_worker_changes_timer():
     assert snapshot.state == TimerState.ARMED
     assert snapshot.start_ts is None
     assert fsm.tick().state == TimerState.RUNNING
+
+
+def test_unavailable_windows_audio_does_not_break_timer_notifications(monkeypatch):
+    from types import SimpleNamespace
+    from core import fsm
+
+    calls = []
+
+    def unavailable_beep(*args):
+        calls.append(args)
+        raise RuntimeError("Failed to beep")
+
+    monkeypatch.setattr(fsm, "winsound", SimpleNamespace(Beep=unavailable_beep))
+    # Run the notification synchronously so a thread exception cannot escape
+    # the test after the assertion has already passed.
+    monkeypatch.setattr(fsm.threading.Thread, "start", lambda thread: thread.run())
+    fsm.play_beep(1000, 150, repeats=3)
+    assert calls == [(1000, 150)]

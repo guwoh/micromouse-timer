@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, replace
 
+import logging
 import threading
 import time
 try:
@@ -17,7 +18,11 @@ def play_beep(freq: int, duration: int, repeats: int = 1) -> None:
     if winsound is not None:
         def _beep():
             for i in range(repeats):
-                winsound.Beep(freq, duration)
+                try:
+                    winsound.Beep(freq, duration)
+                except RuntimeError:
+                    logging.debug("Audible notification unavailable on this machine")
+                    return
                 if i < repeats - 1:
                     time.sleep(0.05)
         threading.Thread(target=_beep, daemon=True).start()

@@ -25,6 +25,9 @@ from vision.overlay import draw_overlay
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, config: dict):
         super().__init__()
+        font = QtGui.QFontDatabase.systemFont(QtGui.QFontDatabase.SystemFont.GeneralFont)
+        font.setPixelSize(13)
+        self.setFont(font)
         self.setWindowTitle("Micromouse Timer 1.2.2")
         self.setWindowIcon(QtGui.QIcon(str(resource_root() / "assets" / "icons" / "micromouse.png")))
         self.resize(1440, 960)
