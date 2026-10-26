@@ -59,7 +59,7 @@ Chạy từ thư mục gốc repo:
 python -m pytest -q
 ```
 
-`pytest.ini` khai báo đường dẫn import và thư mục test. Bộ GUI tự dùng `QT_QPA_PLATFORM=offscreen`, không cần mở cửa sổ desktop trong CI.
+`pytest.ini` khai báo đường dẫn import và thư mục test. Bộ GUI dùng `QT_QPA_PLATFORM=offscreen` trên Linux và plugin `windows` trên Windows để nạp đúng font hệ thống. Test gửi sự kiện bằng QtTest và dùng video local, không cần thao tác thủ công hay camera thật.
 
 Một số lệnh phục vụ kiểm tra cụ thể trên Linux:
 

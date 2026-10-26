@@ -77,7 +77,7 @@ Thay đổi riêng trong Goal chưa đủ để kết luận robot đã về đ�
 │   ├── ui/                    # Dashboard, popup và thành phần PyQt6
 │   ├── samples/               # Hai video mẫu được quản lý trong Git
 │   ├── scripts/               # Liệt kê camera, ghi hình, tạo video thử
-│   ├── tests/                 # Kiểm thử tự động, gồm GUI ở chế độ offscreen
+│   ├── tests/                 # Kiểm thử xử lý ảnh và GUI
 │   ├── packaging/             # PyInstaller, Inno Setup và gói Debian
 │   └── requirements*.txt      # Phụ thuộc chạy app, phát triển và build
 ├── .gitignore

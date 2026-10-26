@@ -1,6 +1,9 @@
 import os
+import sys
 
-os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
+# Windows' offscreen plugin has no native font database. Use the Windows
+# platform there so font metrics match the actual desktop application.
+os.environ.setdefault("QT_QPA_PLATFORM", "windows" if sys.platform == "win32" else "offscreen")
 
 import pytest
 from PyQt6 import QtWidgets
